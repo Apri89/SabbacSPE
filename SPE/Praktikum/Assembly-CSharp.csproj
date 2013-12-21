@@ -47,7 +47,6 @@
      <Compile Include="Assets\Scripts\CoinCollect.cs" />
      <Compile Include="Assets\Scripts\DoorAni.cs" />
      <Compile Include="Assets\Scripts\DoorClosed.cs" />
-     <Compile Include="Assets\Scripts\Gradient.cs" />
      <Compile Include="Assets\Scripts\HUDsabbac.cs" />
      <Compile Include="Assets\Scripts\MainMenu.cs" />
      <Compile Include="Assets\Scripts\Menu.cs" />

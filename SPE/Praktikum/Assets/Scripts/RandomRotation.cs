@@ -2,30 +2,31 @@
 using System.Collections;
 
 public class RandomRotation : MonoBehaviour {
-	private int mode = 0; 
 	private int speed = 100;
-	private int min = 3;
-	private int max = 8;
-	// Use this for initialization
+	private float minWait = 2.0f;
+	private float maxWait = 5.0f;
+	private bool forwardRotation = true;
+	private float minSpeed = 150f;
+	private float maxSpeed = 350f;
 	void Start () {
-		
+		StartCoroutine(WaitRandom());
 	}
 	
-	// Update is called once per frame
 	void Update () {
-		// Für Testzwecke!!! Eigentlich zufällige Änderung nach zufälliger Zeit aber min 3 sek max 8 sek.!
-		if (Input.GetKeyDown ("1")) {
-			mode = 0;
-		}
-		if (Input.GetKeyDown ("2")) {
-			mode = 1;
-		}
-		
-		
-		if (mode == 0){
-		transform.Rotate(Vector3.forward * Time.deltaTime * speed);
+		if (forwardRotation){
+			transform.Rotate(Vector3.forward * Time.deltaTime * Random.Range(minSpeed, maxSpeed));
 		} else {
-		transform.Rotate(-Vector3.forward * Time.deltaTime * (speed-20));
+			transform.Rotate(-Vector3.forward * Time.deltaTime * Random.Range(minSpeed, maxSpeed));
 		}
 	}
+	
+	void toggleRotation() {
+		forwardRotation = !forwardRotation;
+	}
+	IEnumerator WaitRandom() {
+		while(true){
+			yield return new WaitForSeconds(Random.Range(minWait, maxWait));
+			toggleRotation();
+		}
+    }
 }
