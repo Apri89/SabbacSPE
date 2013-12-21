@@ -5,7 +5,7 @@ public class RandomTranslationX : MonoBehaviour {
 	// Seconds
 	private float minWait = 2.0f;
 	private float maxWait = 5.0f;
-	
+
 	private float minSpeed = 150f;
 	private float maxSpeed = 350f;
 	private bool forwardRotation = true;
@@ -25,7 +25,7 @@ public class RandomTranslationX : MonoBehaviour {
 	void toggleRotation() {
 		forwardRotation = !forwardRotation;
 	}
-	
+
 	IEnumerator WaitRandom() {
 		while(true){
 			yield return new WaitForSeconds(2.0f);
