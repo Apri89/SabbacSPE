@@ -44,20 +44,19 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Scripts\CoinCollect.cs" />
      <Compile Include="Assets\Scripts\DoorAni.cs" />
      <Compile Include="Assets\Scripts\DoorClosed.cs" />
-     <Compile Include="Assets\Scripts\HUDsabbac.cs" />
-     <Compile Include="Assets\Scripts\MainMenu.cs" />
+     <Compile Include="Assets\Scripts\General\Pause.cs" />
+     <Compile Include="Assets\Scripts\General\Restart.cs" />
      <Compile Include="Assets\Scripts\Menu.cs" />
      <Compile Include="Assets\Scripts\Menu1.cs" />
-     <Compile Include="Assets\Scripts\Movement.cs" />
-     <Compile Include="Assets\Scripts\Pause.cs" />
-     <Compile Include="Assets\Scripts\RandomRotation.cs" />
-     <Compile Include="Assets\Scripts\Restart.cs" />
-     <Compile Include="Assets\Scripts\Rotation.cs" />
+     <Compile Include="Assets\Scripts\Sabbac\CoinCollect.cs" />
+     <Compile Include="Assets\Scripts\Sabbac\Movement.cs" />
+     <Compile Include="Assets\Scripts\Sabbac\RandomRotation.cs" />
+     <Compile Include="Assets\Scripts\Sabbac\RandomTranslationX.cs" />
+     <Compile Include="Assets\Scripts\Sabbac\Rotation.cs" />
+     <Compile Include="Assets\Scripts\Sabbac\Tutorial.cs" />
      <Compile Include="Assets\Scripts\Sound.cs" />
-     <Compile Include="Assets\Scripts\Tutorial.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Assembly-CSharp-firstpass.csproj">

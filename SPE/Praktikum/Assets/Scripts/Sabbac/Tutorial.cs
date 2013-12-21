@@ -50,10 +50,10 @@ public class Tutorial : MonoBehaviour {
 		
 		if (other.tag == "Finish") {
 			if (everytingCollected()){
-				Application.LoadLevel (Application.loadedLevelName);
+				Application.LoadLevel("SabbacProto");
 			} else {
 				insZieltxt.SetActive(true);
-				insZieltxt.GetComponent<TextMesh>().text = "Nicht alles gesammelt";
+				insZieltxt.GetComponent<TextMesh>().text = "Nicht alles gesammelt!";
 				//insZieltxt.GetComponent(TextMesh).text = "blah";
 			}
     	}

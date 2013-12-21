@@ -1,31 +1,34 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class RandomRotation : MonoBehaviour {
-	private int speed = 100;
+public class RandomTranslationX : MonoBehaviour {
+	// Seconds
 	private float minWait = 2.0f;
 	private float maxWait = 5.0f;
-	private bool forwardRotation = true;
+	
 	private float minSpeed = 150f;
 	private float maxSpeed = 350f;
+	private bool forwardRotation = true;
+	
 	void Start () {
 		StartCoroutine(WaitRandom());
 	}
 	
 	void Update () {
 		if (forwardRotation){
-			transform.Rotate(Vector3.forward * Time.deltaTime * Random.Range(minSpeed, maxSpeed));
+			  transform.Translate(Vector3.right * Time.deltaTime*10.0f);
 		} else {
-			transform.Rotate(-Vector3.forward * Time.deltaTime * Random.Range(minSpeed, maxSpeed));
+			transform.Translate(-Vector3.right * Time.deltaTime*10.0f);
 		}
 	}
 	
 	void toggleRotation() {
 		forwardRotation = !forwardRotation;
 	}
+	
 	IEnumerator WaitRandom() {
 		while(true){
-			yield return new WaitForSeconds(Random.Range(minWait, maxWait));
+			yield return new WaitForSeconds(2.0f);
 			toggleRotation();
 		}
     }
