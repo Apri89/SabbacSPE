@@ -17,6 +17,7 @@ public class OutOfLevel : MonoBehaviour {
 		if(other.tag =="Player"){
 			//Stop ballmovement
 			ball.rigidbody.velocity = Vector3.zero;
+			ball.rigidbody.angularVelocity = Vector3.zero;
 			ball.transform.position = spawnPoint.position;
 		}
 	
