@@ -13,25 +13,28 @@ public class Movement : MonoBehaviour {
 		Debug.DrawRay(transform.position, -Vector3.up*height, Color.green);
 		RaycastHit hit;
 		
-		if (Physics.Raycast(transform.position, -Vector3.up,out hit ,height) || Physics.Raycast(transform.position, -Vector3.left,out hit ,height)){
+		if (grounded){
 	        Vector3 movement = (Input.GetAxis("Horizontal") * Vector3.right * movementSpeed)
 							 + (Input.GetAxis("Vertical") * Vector3.forward * movementSpeed);			
 			//Vector3 Force, ForceMode
 	        rigidbody.AddForce(movement, ForceMode.Impulse);
 			
-			Debug.Log("Grounded");
+			//Debug.Log("Grounded");
 		
-			if(hit.transform.gameObject.CompareTag("Ground")){
-				if (Input.GetButtonDown ("Jump")){
-					rigidbody.AddForce(Vector3.up * power,ForceMode.Impulse); 
-				}	
-			}
+			if (Input.GetButtonDown ("Jump")){
+				rigidbody.AddForce(Vector3.up * power,ForceMode.Impulse); 
+			}	
 		}
 	}
 	void OnCollisionStay(Collision collisionInfo) {
-		grounded = true;
+		Debug.Log("Collision: "+collisionInfo.collider.tag);
+		if(collisionInfo.collider.tag == "Ground"){ 
+			grounded = true;
+		}
 	}
 	void OnCollisionExit(Collision collisionInfo) {
-		grounded = false;
+		if(collisionInfo.collider.tag == "Ground"){ 
+			grounded = false;
+		}
 	}
 }
