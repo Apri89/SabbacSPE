@@ -51,6 +51,7 @@
      <Compile Include="Assets\Scripts\Menu.cs" />
      <Compile Include="Assets\Scripts\Menu1.cs" />
      <Compile Include="Assets\Scripts\Sabbac\CoinCollect.cs" />
+     <Compile Include="Assets\Scripts\Sabbac\MoveUpDown.cs" />
      <Compile Include="Assets\Scripts\Sabbac\Movement.cs" />
      <Compile Include="Assets\Scripts\Sabbac\OutOfLevel.cs" />
      <Compile Include="Assets\Scripts\Sabbac\RandomRotation.cs" />
