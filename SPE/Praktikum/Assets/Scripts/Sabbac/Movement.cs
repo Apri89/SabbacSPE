@@ -26,7 +26,7 @@ public class Movement : MonoBehaviour {
 	}
 	
 	void OnCollisionStay(Collision collisionInfo) {
-		Debug.Log("Collision: "+collisionInfo.collider.tag);
+		//Debug.Log("Collision: "+collisionInfo.collider.tag);
 		if(collisionInfo.collider.tag == "Ground"){ 
 			grounded = true;
 		}
