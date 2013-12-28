@@ -7,7 +7,7 @@ public class RandomRotation : MonoBehaviour {
 	private float maxWait = 5.0f;
 	
 	private float minSpeed = 150f;
-	private float maxSpeed = 350f;
+	private float maxSpeed = 250f;
 	private bool forwardRotation = true;
 	
 	void Start () {
