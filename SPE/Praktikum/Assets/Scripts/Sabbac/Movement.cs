@@ -6,7 +6,10 @@ public class Movement : MonoBehaviour {
 	    public float movementSpeed = 4.0f;
 		public float power = 50.0f;
 		public float height;
+		public AudioClip bounceSound;
 	
+	void Start(){
+	}
 	
 	//FixedUpdate should be used instead of Update when dealing with Rigidbody..
 	void FixedUpdate() {

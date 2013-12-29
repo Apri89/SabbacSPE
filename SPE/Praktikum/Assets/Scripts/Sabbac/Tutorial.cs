@@ -12,6 +12,7 @@ public class Tutorial : MonoBehaviour {
 	public GameObject einsammelntxt;
 	private GameObject goal;
 	private Time highscoreTime;
+	private AudioClip winSound, collectSound;
 
 	void Start () {
 		insZieltxt.SetActive(false);
@@ -23,6 +24,8 @@ public class Tutorial : MonoBehaviour {
 		// Set text of the HUD
 		goaltext.text = "Gesammelt "+score+" / "+coins;
 		timetext.text =  Time.timeSinceLevelLoad.ToString() +" | 3.29";
+		winSound = (AudioClip) Resources.Load("richtig");
+		collectSound = (AudioClip) Resources.Load("falsch");
 	}
 	void Update () {
 		goaltext.text = "Gesammelt "+score+" / "+coins;
@@ -50,12 +53,19 @@ public class Tutorial : MonoBehaviour {
 		
 		if (other.tag == "Finish") {
 			if (everytingCollected()){
-				Application.LoadLevel("SabbacProto");
+				audio.PlayOneShot(winSound);
+				StartCoroutine(WaitAndLoadLevel()); 	
 			} else {
+				audio.PlayOneShot(collectSound);
 				insZieltxt.SetActive(true);
 				insZieltxt.GetComponent<TextMesh>().text = "Nicht alles gesammelt!";
 				//insZieltxt.GetComponent(TextMesh).text = "blah";
 			}
     	}
 	}
+	
+	IEnumerator WaitAndLoadLevel() {
+        yield return new WaitForSeconds(1);
+		Application.LoadLevel("SabbacProto");
+    }
 }

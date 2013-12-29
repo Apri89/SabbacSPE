@@ -59,6 +59,7 @@
      <Compile Include="Assets\Scripts\Sabbac\RandomTranslationX.cs" />
      <Compile Include="Assets\Scripts\Sabbac\RandomTranslationZ.cs" />
      <Compile Include="Assets\Scripts\Sabbac\Rotation.cs" />
+     <Compile Include="Assets\Scripts\Sabbac\SoundSabbac.cs" />
      <Compile Include="Assets\Scripts\Sabbac\Tutorial.cs" />
      <Compile Include="Assets\Scripts\Sound.cs" />
   </ItemGroup>

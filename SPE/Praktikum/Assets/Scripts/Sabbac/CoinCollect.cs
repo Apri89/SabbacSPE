@@ -10,7 +10,8 @@ public class CoinCollect : MonoBehaviour {
 	public GUIText timetext;
 	private GameObject goal;
 	private Time highscoreTime;
-
+	private AudioClip winSound, collectSound;
+	
 	void Start () {
 		goal = GameObject.FindWithTag("Finish");
 		// How many Coins are in the level?
@@ -21,6 +22,8 @@ public class CoinCollect : MonoBehaviour {
 		goaltext.text = "Gesammelt "+score+" / "+coins;
 		timetext.text =  Time.timeSinceLevelLoad.ToString() +" | 3.29";
 		//goal.renderer.material.color = Color.red;			
+		winSound = (AudioClip) Resources.Load("richtig");
+		collectSound = (AudioClip) Resources.Load("falsch");
 	}
 	void Update () {
 		goaltext.text = "Gesammelt "+score+" / "+coins;
@@ -34,8 +37,7 @@ public class CoinCollect : MonoBehaviour {
 	// Checks if everything is collected
 	bool everytingCollected(){
 		return coins == score;
-	}
-	
+	}	
 	
 	void OnTriggerEnter (Collider other){
 		// Collecting Coin:
@@ -46,10 +48,17 @@ public class CoinCollect : MonoBehaviour {
 		
 		if (other.tag == "Finish") {
 			if (everytingCollected()){
-				Application.LoadLevel (Application.loadedLevelName);
+				audio.PlayOneShot(winSound);
+				StartCoroutine(WaitAndLoadLevel()); 		
 			} else {
-				print("Noch nicht alles eingesammelt!");
+				audio.PlayOneShot(collectSound);
+				print("Noch nicht alles eingesammelt!");				
 			}
     	}
 	}
+	
+	IEnumerator WaitAndLoadLevel() {
+        yield return new WaitForSeconds(1);
+		Application.LoadLevel (Application.loadedLevelName);
+    }
 }
