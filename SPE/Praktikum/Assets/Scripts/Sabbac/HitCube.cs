@@ -14,23 +14,18 @@ public class HitCube : MonoBehaviour {
 		
 	}
 	
+	// check if ball is under the cube, then restart
 	void OnCollisionEnter(Collision collision){
 		Vector3 contact = collision.contacts[0].point;
 		
 	    Vector3 relativePosition = transform.InverseTransformPoint(contact);
 	
-	    if (relativePosition.y > 0) {
-	
-	    	Debug.Log("The object is to the above");
-	
-	    } else {
-	
-	    	Debug.Log("The object is to the under");
+	    if (relativePosition.z > -0.5 && relativePosition.z < 0.5) {
 			ball.rigidbody.velocity = Vector3.zero;
 			ball.rigidbody.angularVelocity = Vector3.zero;
 			ball.transform.position = spawnPoint.position;
+	    	Debug.Log("The object is under");
 	    }
-
 	}
 }
 

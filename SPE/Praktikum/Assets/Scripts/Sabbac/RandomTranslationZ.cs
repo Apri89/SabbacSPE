@@ -11,9 +11,9 @@ public class RandomTranslationZ : MonoBehaviour {
 	
 	void Update () {
 		if (forwardRotation){
-			  transform.Translate(Vector3.up * 5 * Time.deltaTime);
+			  transform.Translate(Vector3.up * 10 * Time.deltaTime);
 		} else {
-			transform.Translate(-Vector3.up * 5 * Time.deltaTime);
+			transform.Translate(-Vector3.up * 10 * Time.deltaTime);
 		}
 	}
 	
